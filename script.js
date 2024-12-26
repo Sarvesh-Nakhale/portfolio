@@ -9,3 +9,18 @@ document.addEventListener("scroll", () => {
     }
   });
   
+  // Lock the window size
+window.onload = function () {
+  const width = window.innerWidth;
+  const height = window.innerHeight;
+
+  // Set the fixed size of the window (80% width of the viewport)
+  if (width !== window.outerWidth || height !== window.outerHeight) {
+    window.resizeTo(width, height); // Lock to the initial size
+  }
+
+  // Prevent resizing the window
+  window.onresize = function () {
+    window.resizeTo(width, height);
+  };
+};
